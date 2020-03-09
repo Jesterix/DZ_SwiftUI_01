@@ -8,9 +8,28 @@
 
 import SwiftUI
 
+struct Food: Identifiable {
+    let id = UUID()
+    let name: String
+}
+
+final class FoodListViewModel: ObservableObject {
+    @Published private(set) var foods = [Food(name: "Cheese"),
+                                         Food(name: "Apple"),
+                                         Food(name: "Tomato"),
+                                         Food(name: "Strawberry")]
+}
+
 struct ContentView: View {
+
+    @ObservedObject var viewModel = FoodListViewModel()
+
     var body: some View {
-        Text("Hello, World!")
+        List {
+            ForEach(viewModel.foods) { food in
+                Text(food.name)
+            }
+        }
     }
 }
 
