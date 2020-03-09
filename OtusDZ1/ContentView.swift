@@ -22,7 +22,7 @@ final class FoodListViewModel: ObservableObject {
 
 struct ContentView: View {
 
-    @ObservedObject var viewModel = FoodListViewModel()
+    @EnvironmentObject var viewModel: FoodListViewModel
 
     var body: some View {
         List {
@@ -35,6 +35,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView().environmentObject(FoodListViewModel())
     }
 }
