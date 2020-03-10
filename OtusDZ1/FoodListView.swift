@@ -1,8 +1,8 @@
 //
-//  ContentView.swift
+//  FoodListView.swift
 //  OtusDZ1
 //
-//  Created by Георгий Хайденко on 09.03.2020.
+//  Created by Георгий Хайденко on 10.03.2020.
 //  Copyright © 2020 Георгий Хайденко. All rights reserved.
 //
 
@@ -20,8 +20,7 @@ final class FoodListViewModel: ObservableObject {
                                          Food(name: "Strawberry")]
 }
 
-struct ContentView: View {
-
+struct FoodListView: View {
     @EnvironmentObject var viewModel: FoodListViewModel
 
     var body: some View {
@@ -33,8 +32,8 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct FoodListView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView().environmentObject(FoodListViewModel())
+        FoodListView().environmentObject(FoodListViewModel())
     }
 }
